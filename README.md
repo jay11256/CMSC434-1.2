@@ -39,7 +39,7 @@ git pull
 ```
 
 and when i make you finish.....
-``bash
+```bash
 git add .
 git commit -m "i am a GENIUS"
 git push
