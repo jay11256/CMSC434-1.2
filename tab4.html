@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+
+<body style="text-align: center;">
+    <h1>Profile</h1>
+
+    <img src="SmileyFace.png" width="200" onclick="showNote()">
+    <p><b>Mayuri Sodi</b></p>
+
+    <!-- notification: hidden until the image is tapped -->
+    <div id="note" style="display: none; border: 2px solid black; padding: 10px;">
+        <p>Hellooo! I'm Verity! Ask me Anything!! I KNOW everything.</p>
+        <button onclick="hideNote()">Close</button>
+    </div>
+
+    <script>
+      function showNote() { document.getElementById("note").style.display = "block"; }
+      function hideNote() { document.getElementById("note").style.display = "none"; }
+    </script>
+</body>
+</html>
