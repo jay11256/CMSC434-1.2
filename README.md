@@ -9,22 +9,17 @@
 oh its pari, oui oui oui (*merci!*)
 anyways 
 
-## how does codespaces work, you ask?? i GOT you!
-
-1. go to ts GitHub repo.. but youre already in it !
-2. click **Code → Codespaces** and open your cool new codespace... no need to clone in vs, because we are alredy IN IT!
-3. BOOM. you're coding. you're welcome. just dont be on at the same time as my other friends.
+## how do i synch ts repo with my vs code, you ask???? fear not, i GOT YOU!!!
+ 1. open our GitHub repo and click Code → HTTPS and copy that link
+ 2. set your name and email using git config --global user.name and git config --global user.email
+ 3. open TS Code--sorry, *VS*--press Ctrl + Shift + P, search Git: Clone, paste the link, and choose where to save everything
+ 4. open folder. aaaaaand were IN!
 
 ## wanna see your CHOPPED website???
 
-open the terminal and type:
+find index.html in your computer's file explorer, and select "open in" to open it in your browser
+you might have to refresh!
 
-```bash
-python3 -m http.server 8000
-```
-yes, i know your dumb ass will forget the command.
-
-go to **PORTS** (right next to terminal, stupid!) → hover on the forwarded address link → click globe next that pops up.
 
 BEHOLD MY CREATION!!!!!!!!!
 *ahem* OUR creation!!!!!!!!
@@ -32,23 +27,38 @@ BEHOLD MY CREATION!!!!!!!!!
 ## wanna SAVE your work???? 
 # you have to push, mama!
 
-FIRST, GET EVERYONE'S LATEST CHANGES:
+check which branch you're on:
 
+```bash
+git branch
+```
+
+get everyone's latest changes
 ```bash
 git pull
 ```
 
-AFTER YOU FINISH CODING:
-
-```bash
+and when i make you finish.....
+``bash
 git add .
 git commit -m "i am a GENIUS"
 git push
-```
+```bash
 
-DO NOT FORGET TO PUSH. I AM WATCHING.
+DO NOT FORGET TO PUSH. I AM WATCHING. 
+
+IF you're working on separate branches, push your branch and open a pull request to combine your work
 
 *(and make sure you're on the correct branch before pulling or pushing, baka)*
+
+## NO VS CODE????? LAZY. but you know i love you....
+
+so ill tell you--you can actually edit directly on GitHub!
+
+just click on the file you want to edit in ts and click the pencil icon to start editing
+but never forget.
+commit changes. 
+
 
 ## you need HELP???? pathetic. i told you, I KNOW everything. but here:
 
