@@ -1,21 +1,26 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My First App</title>
+    <title>CMSC434</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="app">
-        <main>
-            <h1>Text Tab</h1>
-            <p>eeeeek ts a test is this thing on helloooooooo</p>
-        </main>
+
+        <iframe id="content" src="tab1.html"></iframe>
 
         <nav>
-            <button>📄 oo paper emoji</button>
+            <button onclick="openTab('tab1.html')">📄 text</button>
+            <button onclick="openTab('tab2.html')">↘️ lowlow</button>
+            <button>🎨 colores </button>
+            <button>👤 profile!</button>
+            <button>☑️ choices choices</button>
+            <button>📝 doodoo</button>
         </nav>
+
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
