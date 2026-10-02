@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choices</title>
+</head>
+
+<body style="text-align: center;">
+    <h1>Choices</h1>
+
+    <div>
+        <p>Choose one:</p>
+        <label><input type="radio" name="choice1" value="One"> One</label><br>
+        <label><input type="radio" name="choice1" value="Two"> Two</label><br>
+        <label><input type="radio" name="choice1" value="Three"> Three</label><br>
+        <label><input type="radio" name="choice1" value="Four"> Four</label>
+    </div>
+    <br>
+    <div>
+        <label for="choice2">Choose another:</label>
+        <select id="choice2" name="choice2">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+        </select>
+    </div>
+    <br>
+    <button onclick="showChoices()">Submit</button>
+    <br>
+    <p id="result"></p>
+
+    <script>
+        function showChoices() {
+            var first = document.querySelector('input[name="choice1"]:checked').value;
+            var second = document.getElementById("choice2").value;
+            document.getElementById("result").innerHTML = "You chose: " + first + " and " + second;
+        }
+    </script>
+
+    
+</body>
+</html>
