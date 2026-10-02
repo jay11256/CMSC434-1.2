@@ -1,24 +1,214 @@
+/* =========================================================
+   Kitchen Kompanion – P1.2 tab prototype
+   Device: 640x960 div, per the Fall 2026 CMSC434 device specs
+   (8.3" diagonal tablet). Zoom Chrome so it appears ~8.3" diagonal.
+   ========================================================= */
+:root {
+  --device-w: 640px;
+  --device-h: 960px;
+
+  --basil: #2F6B4F;      /* primary */
+  --basil-dark: #1F4A37;
+  --yolk: #F2B134;       /* accent */
+  --leaf: #F6F9F4;       /* app background */
+  --ink: #1D2B24;        /* text */
+  --muted: #5E6E66;
+  --line: #D5DFD7;
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #CBD8CE;
+  font-family: var(--font);
+  color: var(--ink);
 }
 
-.app {
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
+/* ---------- Device frame ---------- */
+.device {
+  width: var(--device-w);
+  height: var(--device-h);
+  display: flex;
+  flex-direction: column;
+  background: var(--leaf);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(31, 74, 55, .25);
 }
 
-main {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
+.app-bar {
+  flex: none;
+  padding: 16px 28px 18px;
+  background: var(--basil);
+  color: #fff;
+}
+.app-name { font-size: 18px; opacity: .8; }
+.app-bar h1 { margin: 4px 0 0; font-size: 34px; font-weight: 700; }
+
+/* Content area: everything between the app bar and the tab bar */
+.content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;            /* only the active panel scrolls */
+}
+.panel {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+  overflow-y: auto;
+  display: none;
+}
+.panel.active { display: block; }
+
+/* ---------- Bottom tab bar ---------- */
+.tab-bar {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+.tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 0 12px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 600 17px var(--font);
+  cursor: pointer;
+}
+.tab svg {
+  width: 40px; height: 40px;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.tab svg .fill { fill: currentColor; }
+.tab.active { color: var(--basil); }
+.tab.active::before {           /* yolk indicator on the active tab */
+  content: "";
+  position: absolute; top: 0; left: 20%; right: 20%;
+  height: 5px; border-radius: 0 0 4px 4px;
+  background: var(--yolk);
+}
+.tab:focus-visible, .btn:focus-visible, .smiley-btn:focus-visible {
+  outline: 3px solid var(--yolk); outline-offset: 2px;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    background-color: lightgray;
+/* ---------- Shared bits ---------- */
+h2 { font-size: 26px; margin: 28px 0 10px; color: var(--basil-dark); }
+.panel > h2:first-child { margin-top: 0; }
+.btn {
+  border: 0; border-radius: 12px;
+  padding: 16px 28px;
+  background: var(--basil); color: #fff;
+  font: 600 22px var(--font);
+  cursor: pointer;
 }
+.btn:active { background: var(--basil-dark); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- TAB 1: Text ---------- */
+#tab-text p { line-height: 1.55; margin: 0 0 18px; font-size: 22px; max-width: 34em; }
+#tab-text .end-note { color: var(--muted); font-style: italic; }
+
+/* ---------- TAB 2: LR ---------- */
+#tab-lr .down-here {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* ---------- TAB 3: Colors ---------- */
+.color-line { margin: 0 0 12px; padding: 16px 20px; font-size: 26px; font-weight: 700; }
+.line-yellow { color: yellow; background-color: black; }
+.line-purple { color: purple; background-color: yellow; }
+.chart-title { margin-top: 28px; }
+.chart-box { position: relative; width: 100%; height: 480px; }
+
+/* ---------- TAB 4: Profile ---------- */
+.profile {
+  height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+}
+.smiley-btn { border: 0; padding: 0; background: none; cursor: pointer; border-radius: 50%; }
+.smiley-btn img { display: block; width: 300px; height: 300px; object-fit: contain; }
+.profile-name { margin: 24px 0 0; font-size: 34px; }
+
+.notice-backdrop {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  background: rgba(29, 43, 36, .45);
+}
+.notice-backdrop[hidden] { display: none; }
+.notice {
+  width: 70%;
+  padding: 32px;
+  border-radius: 18px;
+  font-size: 24px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
+.notice h2 { margin: 0 0 10px; font-size: 30px; }
+.notice p { margin: 0 0 24px; }
+
+/* ---------- TAB 5: Choices ---------- */
+.field { margin: 0 0 30px; border: 0; padding: 0; }
+.field legend, .field-label {
+  display: block; margin-bottom: 12px;
+  font-size: 24px; font-weight: 700; color: var(--basil-dark);
+}
+.radio { display: flex; align-items: center; gap: 16px; padding: 12px 0; font-size: 24px; }
+.radio input { width: 30px; height: 30px; accent-color: var(--basil); }
+#meal {
+  width: 100%; padding: 16px;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: #fff; font: 24px var(--font);
+}
+.output {
+  margin-top: 28px; padding: 20px;
+  border-left: 6px solid var(--yolk);
+  background: #fff; line-height: 1.45; font-size: 24px;
+}
+.output:empty { display: none; }
+
+/* ---------- TAB 6: ToDo ---------- */
+.todo-add { display: flex; gap: 12px; margin-bottom: 20px; }
+#todo-input {
+  flex: 1; min-width: 0;
+  padding: 16px; border: 1px solid var(--line); border-radius: 12px;
+  font: 24px var(--font);
+}
+.todo-list { list-style: none; padding: 0; margin: 0; }
+.todo-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 6px;
+  border-bottom: 1px solid var(--line);
+}
+.todo-item label { flex: 1; display: flex; align-items: center; gap: 16px; font-size: 24px; }
+.todo-item input[type="checkbox"] { width: 30px; height: 30px; accent-color: var(--basil); }
+.todo-item.done span { text-decoration: line-through; color: var(--muted); }
+.todo-delete {
+  border: 0; background: none; cursor: pointer;
+  width: 52px; height: 52px; border-radius: 10px;
+  font-size: 34px; line-height: 1; color: #B3261E;
+}
+.todo-delete:hover { background: #FBE9E7; }
+.todo-empty { color: var(--muted); text-align: center; margin-top: 40px; font-size: 22px; }

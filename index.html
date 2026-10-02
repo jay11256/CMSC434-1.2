@@ -1,21 +1,139 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First App</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kitchen Kompanion – P1.2 Tabs</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="app">
-        <main>
-            <h1>Text Tab</h1>
-            <p>eeeeek ts a test is this thing on helloooooooo</p>
-        </main>
+  <div class="device">
+    <header class="app-bar">
+      <span class="app-name">Kitchen Kompanion</span>
+      <h1 id="screen-title">Text</h1>
+    </header>
 
-        <nav>
-            <button>📄 oo paper emoji</button>
-        </nav>
-    </div>
+    <main class="content">
+
+      <!-- ========== TAB 1: Text (owner: ____) ========== -->
+      <section id="tab-text" class="panel active" aria-labelledby="screen-title">
+        <h2>About Kitchen Kompanion</h2>
+        <p>Kitchen Kompanion helps a household manage its kitchen. Instead of each person separately tracking groceries, recipes, dietary restrictions, expiration dates, and shopping lists, the app combines these tasks into one system centered on the food that is actually in the house.</p>
+        <p>Users can add new groceries, update quantities as items get used, and see approximate expiration dates or when it may be time to restock. From that inventory, Koko the Cat recommends meals that match each person's skill level, or points out which extra ingredients a recipe still needs.</p>
+        <h2>Who it's for</h2>
+        <p>Anyone who uses a kitchen, shared or not, and wants more guidance with their food habits: finding recipes, planning meals, or keeping track of dietary restrictions.</p>
+        <p>That includes the people who shop and stock the fridge, the people who eat from the shelves without managing them, and children old enough to grab a snack but not old enough to track what they can safely have.</p>
+        <p>A college senior sharing a fridge with three roommates needs to know which food is theirs, which is shared, and which is off limits. An adult with a newly diagnosed digestive condition needs help finding recipes that fit what they can eat now.</p>
+        <p>A middle schooler home alone after school wants to know which snacks they can make without asking a parent or using dangerous equipment. A guardian cooking for a family of five needs help planning the week's meals and a reminder when groceries run low.</p>
+        <h2>Why it matters</h2>
+        <p>When kitchen information is scattered, food goes to waste, duplicate items get bought, and roommates argue over whose groceries are whose. Connecting inventory to shopping lists and recipe suggestions helps people use what they already have and see what they still need.</p>
+        <h2>Privacy</h2>
+        <p>The inventory is shared by design, since everyone who uses the fridge needs to see what's in it. Dietary preferences are not. Restrictions are tied to a single profile, are only visible while that profile is in use, and never require a reason.</p>
+        <p>The app tracks food, not people: no calorie counts, weight, or eating history. Child profiles enforce restrictions rather than log habits.</p>
+        <p class="end-note">You've reached the end of the page.</p>
+      </section>
+
+      <!-- ========== TAB 2: LR (owner: ____) ========== -->
+      <section id="tab-lr" class="panel" aria-labelledby="screen-title">
+        <p class="down-here">Down Here</p>
+      </section>
+
+      <!-- ========== TAB 3: Colors (owner: ____) ========== -->
+      <section id="tab-colors" class="panel" aria-labelledby="screen-title">
+        <p class="color-line line-yellow">Black n yellow black n yellow black n yellow</p>
+        <p class="color-line line-purple">this is purple text on a yellow background :D</p>
+        <h2 class="chart-title">Fridge Contents</h2>
+        <div class="chart-box">
+          <canvas id="pie" role="img" aria-label="Pie chart of fridge contents by category"></canvas>
+        </div>
+      </section>
+
+      <!-- ========== TAB 4: Profile (owner: ____) ========== -->
+      <section id="tab-profile" class="panel" aria-labelledby="screen-title">
+        <div class="profile">
+          <!-- SmileyFace.png must be saved in this same folder (no linking to course servers) -->
+          <button id="smiley-btn" class="smiley-btn" aria-haspopup="dialog">
+            <img src="SmileyFace.png" alt="Smiley face. Tap for a message.">
+          </button>
+          <p class="profile-name"><b>Mayuri Sodi</b></p>
+        </div>
+        <div id="notice" class="notice-backdrop" hidden>
+          <div class="notice" role="dialog" aria-modal="true" aria-labelledby="notice-title">
+            <h2 id="notice-title">Hellooo!</h2>
+            <p>I'm Verity, your personal helper friend! Ask me anything! I Know everything!</p>
+            <button id="notice-close" class="btn">Close</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== TAB 5: Choices (owner: ____) ========== -->
+      <section id="tab-choices" class="panel" aria-labelledby="screen-title">
+        <fieldset class="field">
+          <legend>Cooking skill</legend>
+          <label class="radio"><input type="radio" name="skill" value="beginner" checked> Beginner</label>
+          <label class="radio"><input type="radio" name="skill" value="intermediate"> Intermediate</label>
+          <label class="radio"><input type="radio" name="skill" value="advanced"> Advanced</label>
+        </fieldset>
+        <div class="field">
+          <label for="meal" class="field-label">Meal</label>
+          <select id="meal">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner" selected>Dinner</option>
+            <option value="snack">Snack</option>
+          </select>
+        </div>
+        <button id="choices-btn" class="btn">Show my pick</button>
+        <p id="choices-output" class="output" aria-live="polite"></p>
+      </section>
+
+      <!-- ========== TAB 6: ToDo (owner: ____) ========== -->
+      <section id="tab-todo" class="panel" aria-labelledby="screen-title">
+        <div class="todo-add">
+          <label for="todo-input" class="sr-only">New item</label>
+          <input id="todo-input" type="text" placeholder="Add an item, e.g. buy eggs" autocomplete="off">
+          <button id="todo-add-btn" class="btn">Add</button>
+        </div>
+        <ul id="todo-list" class="todo-list"></ul>
+        <p id="todo-empty" class="todo-empty" hidden>Nothing on the list. Type an item above and tap Add.</p>
+      </section>
+
+    </main>
+
+    <!-- ========== Bottom tab bar (shared) ========== -->
+    <nav class="tab-bar" aria-label="Tabs">
+      <button class="tab active" data-tab="tab-text" data-title="Text" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        <span>Text</span>
+      </button>
+      <button class="tab" data-tab="tab-lr" data-title="LR">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8l8 8M16 10v6h-6"/></svg>
+        <span>LR</span>
+      </button>
+      <button class="tab" data-tab="tab-colors" data-title="Colors">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-1.3-1-1.6-1-2.6 0-.9.7-1.6 1.7-1.6H17a4 4 0 0 0 4-4c0-4.4-4-8.1-9-8.1z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/></svg>
+        <span>Colors</span>
+      </button>
+      <button class="tab" data-tab="tab-profile" data-title="Profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4.3-6 8-6s7 2 8 6"/></svg>
+        <span>Profile</span>
+      </button>
+      <button class="tab" data-tab="tab-choices" data-title="Choices">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.5"/><circle cx="6" cy="7" r=".8" class="fill"/><circle cx="6" cy="17" r="2.5"/><path d="M11 7h9M11 17h9"/></svg>
+        <span>Choices</span>
+      </button>
+      <button class="tab" data-tab="tab-todo" data-title="ToDo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="5" height="5" rx="1"/><path d="M4.5 6.5l1 1 2-2"/><rect x="3" y="14" width="5" height="5" rx="1"/><path d="M11 6.5h10M11 16.5h10"/></svg>
+        <span>ToDo</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Chart.js v4.5.1 + chartjs-plugin-datalabels v2.2.0 (MIT), from the CMSC434 P1.2 example code.
+       Saved locally in lib/ so the app runs offline. Sources:
+       https://www.chartjs.org  and  https://chartjs-plugin-datalabels.netlify.app -->
+  <script src="lib/chart.umd.min.js"></script>
+  <script src="lib/chartjs-plugin-datalabels.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
