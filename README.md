@@ -39,11 +39,12 @@ git pull
 ```
 
 and when i make you finish.....
+
 ```bash
 git add .
 git commit -m "i am a GENIUS"
 git push
-```bash
+```
 
 DO NOT FORGET TO PUSH. I AM WATCHING. 
 
@@ -65,7 +66,6 @@ commit changes.
 - [HTML FOR DUMMIES](https://www.w3schools.com/html/)
 - [CSS FOR DUMMIES](https://www.w3schools.com/css/)
 - [JAVASCRIPT FOR DUMMIES](https://www.w3schools.com/js/)
-- [GITHUB CODESPACES](https://docs.github.com/en/codespaces)
 
 IF YOU COPY EXAMPLE CODE, CITE YOUR SOURCES IN COMMENTS. or the big G will get you.
 
