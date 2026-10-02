@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo</title>
+    <style>
+        ul { list-style: none; padding: 0; width: 300px; margin: 20px auto; }
+        li { padding: 8px; border-bottom: 1px solid #ccc; cursor: pointer; text-align: left; }
+        li.done { text-decoration: line-through; color: gray; }
+        .delete { float: right; color: red; }
+    </style>
+</head>
+
+<body style="text-align: center;">
+    <h1>ToDo</h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            var input = document.getElementById("taskInput");
+            var text = input.value.trim();
+            if (text === "") return;
+ 
+            var li = document.createElement("li");
+            li.textContent = text;
+ 
+            // Click the item to cross it off (click again to undo)
+            li.onclick = function () {
+                li.classList.toggle("done");
+            };
+ 
+            // X button to delete the item
+            var del = document.createElement("span");
+            del.textContent = "\u00D7";
+            del.className = "delete";
+            del.onclick = function (event) {
+                li.remove();
+            };
+ 
+            li.appendChild(del);
+            document.getElementById("taskList").appendChild(li);
+            input.value = "";
+        }
+    </script>
+    
+</body>
+</html>
