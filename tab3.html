@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colors</title>
+</head>
+
+<body>
+    <h1>Colors</h1>
+
+    <p style="color: yellow; background-color: black;">black n yellow black n yellow black n yellow</p>
+    <p style="color: purple; background-color: yellow;">this is yellow text on a purple background :D</p>
+
+    <canvas id="pie" width="300" height="300"></canvas>
+
+    // Chart.js and datalabels plugin from #1.2 description
+    <script src="lib/chart.umd.min.js"></script>
+    <script src="lib/chartjs-plugin-datalabels.js"></script>
+    <script>
+      
+      // https://www.chartjs.org/docs/latest/charts/doughnut.html
+      new Chart(document.getElementById("pie"), {
+        type: "pie",
+        plugins: [ChartDataLabels],
+        data: {
+          labels: ["Produce", "Dairy", "Grains", "Protein", "Drinks", "Snacks"],
+          datasets: [{
+            data: [30, 18, 14, 16, 10, 12],
+            backgroundColor: ["red", "orange", "gold", "limegreen", "dodgerblue", "violet"]
+          }]
+        },
+        options: {
+          responsive: false,
+          plugins: {
+            datalabels: { color: "white", formatter: (value) => value + "%" },
+            tooltip: { callbacks: { label: (ctx) => ctx.parsed + "%" } }
+          }
+        }
+      });
+    </script>
+</body>
+</html>
