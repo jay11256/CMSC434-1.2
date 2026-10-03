@@ -11,9 +11,9 @@ anyways
 
 ## how do i synch ts repo with my vs code, you ask???? fear not, i GOT YOU!!!
  1. open our GitHub repo and click Code → HTTPS and copy that link
- 2. set your name and email using git config --global user.name and git config --global user.email
- 3. open TS Code--sorry, *VS*--press Ctrl + Shift + P, search Git: Clone, paste the link, and choose where to save everything
- 4. open folder. aaaaaand were IN!
+ 1.5 (if you are not logged in) set your name and email using git config --global user.name and git config --global user.email
+ 2. open TS Code--sorry, *VS*--press Ctrl + Shift + P, search Git: Clone, paste the link, and choose where to save everything
+ 3. open folder. aaaaaand were IN!
 
 ## wanna see your CHOPPED website???
 
@@ -21,7 +21,8 @@ find index.html in your computer's file explorer, and select "open in" to open i
 you might have to refresh!
 
 
-BEHOLD MY CREATION!!!!!!!!!
+BEHOLD MY CREATION!!!!!!!!!  
+
 *ahem* OUR creation!!!!!!!!
 
 ## wanna SAVE your work???? 
@@ -38,7 +39,7 @@ get everyone's latest changes
 git pull
 ```
 
-and when i make you finish.....
+and when you finish.....
 
 ```bash
 git add .
@@ -67,6 +68,6 @@ commit changes.
 - [CSS FOR DUMMIES](https://www.w3schools.com/css/)
 - [JAVASCRIPT FOR DUMMIES](https://www.w3schools.com/js/)
 
-IF YOU COPY EXAMPLE CODE, CITE YOUR SOURCES IN COMMENTS. or the big G will get you.
+IF YOU COPY EXAMPLE CODE, CITE YOUR SOURCES IN COMMENTS. or i will get you.
 
 # THAT IS ALL. VERITY OUT.
