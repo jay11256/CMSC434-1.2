@@ -10,7 +10,7 @@ oh its pari, oui oui oui (*merci!*)
 anyways 
 
 ## how do i synch ts repo with my vs code, you ask???? fear not, i GOT YOU!!!
- 1. open our GitHub repo and click Code → HTTPS and copy that link
+ 1. open our GitHub repo and click Code → HTTPS and copy that link  
  1.5 (if you are not logged in) set your name and email using git config --global user.name and git config --global user.email
  2. open TS Code--sorry, *VS*--press Ctrl + Shift + P, search Git: Clone, paste the link, and choose where to save everything
  3. open folder. aaaaaand were IN!
